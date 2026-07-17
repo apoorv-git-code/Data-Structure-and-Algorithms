@@ -1,0 +1,39 @@
+## Here we will study about variadic functions
+
+A Variadic Function is a function that can accept a variable number of arguments.
+The printf() function is a good example. Sometimes you pass one argument: printf("Hello"). Other times you pass three: printf("%d + %d = %d", a, b, c). To handle this flexibility in your own functions, C provides the <stdarg.h> header.
+
+1. The Core Components (stdarg.h)
+To build a variadic function, you must use four specific macros:
+	• va_list: A type that holds the information needed to retrieve the arguments.
+	• va_start: Initializes the va_list to point to the first variable argument.
+	• va_arg: Retrieves the next argument in the list (you must specify the type, like int or double).
+	• va_end: Cleans up the memory used by the va_list
+
+ Header File Used :
+
+#include <stdio.h>
+#include <stdarg.h> // Essential header
+
+// 'count' is the fixed argument
+int sum_numbers(int count, ...) {
+    va_list args;           // 1. Declare the list
+    int sum = 0;
+
+    va_start(args, count);  // 2. Start at the first argument after 'count'
+
+    for (int i = 0; i < count; i++) {
+                                                       // 3. Fetch each argument as an 'int'
+        sum += va_arg(args, int);
+    }
+
+    va_end(args);           // 4. Clean up
+    return sum;
+}
+
+int main() {
+    printf("Sum of 3 numbers: %d\n", sum_numbers(3, 10, 20, 30));
+    printf("Sum of 5 numbers: %d\n", sum_numbers(5, 1, 2, 3, 4, 5));
+    
+    return 0;
+}
