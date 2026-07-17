@@ -2,4 +2,4 @@ An Abstract Data Type (ADT) is a high-level description of a data structure that
 In C, we implement an ADT by separating the interface (the .h file) from the implementation (the .c file). This is exactly what we did with the Bank Account example, but let’s look at it through the lens of a Stack (a classic ADT).
 
 
-(Don’t really get the code too much going to do this later)
+Yep this is it
