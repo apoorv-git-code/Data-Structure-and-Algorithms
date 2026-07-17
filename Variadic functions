@@ -1,5 +1,5 @@
 ## Here we will study about variadic functions
-
+ 
 A Variadic Function is a function that can accept a variable number of arguments.
 The printf() function is a good example. Sometimes you pass one argument: printf("Hello"). Other times you pass three: printf("%d + %d = %d", a, b, c). To handle this flexibility in your own functions, C provides the <stdarg.h> header.
 
